@@ -1,0 +1,14 @@
+{
+  "name": "junsu",
+  "description": "El plugin de Junsu para Claude.",
+  "owner": {
+    "name": "Junsu"
+  },
+  "plugins": [
+    {
+      "name": "junsu",
+      "source": "./junsu",
+      "description": "Trabaja en un Proyecto de Junsu desde Claude: pasos, datos, evidencias, cambios con vista previa y observaciones, con la guía del recorrido."
+    }
+  ]
+}

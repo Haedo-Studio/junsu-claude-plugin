@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "junsu": {
+      "type": "http",
+      "url": "https://junsu.es/mcp"
+    }
+  }
+}
