@@ -1,11 +1,12 @@
 {
   "name": "junsu",
   "displayName": "Junsu",
-  "version": "1.2.0",
+  "version": "1.4.0",
   "description": "Trabaja en un Proyecto de Junsu desde Claude: pasos, datos, evidencias, cambios con vista previa y observaciones, con la gu\u00eda del recorrido.",
   "author": {
     "name": "Junsu",
     "url": "https://junsu.es"
   },
+  "license": "MIT",
   "icon": "./logo.png"
 }

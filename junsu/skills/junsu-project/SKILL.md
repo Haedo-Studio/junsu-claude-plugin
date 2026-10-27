@@ -69,7 +69,8 @@ working around it.
 
 ## Preparing, confirming and saving
 
-1. Build the batch for one write tool (`save_mappings` or `save_evaluations`), at most
+1. Build the batch for one write tool (`save_mappings`, `save_evaluations` or
+   `save_processing_records`), at most
    50 changes, each with the `expected_version` you read.
 2. Call `preview_changes(tool, changes)`. It writes nothing. Show the user, row by row,
    the before and after, the computed results and the effects. If it reports errors
@@ -84,7 +85,7 @@ Rules of the write tools:
 
 - Every evaluable conclusion carries a `rationale` and at least one citation: each
   relation in `save_mappings`, each factor grade and each efficacy dimension in
-  `save_evaluations`. If evidence is insufficient, do not write; tell the user what
+  `save_evaluations`, each entry in `save_processing_records`. If evidence is insufficient, do not write; tell the user what
   is missing.
 - `save_mappings` (`activity_risk`) adds, updates or removes one Activity–Risk
   relation per change and never touches the others. Removing a relation that already
@@ -94,17 +95,28 @@ Rules of the write tools:
   `project_risk_id`), or the Nef achievement (0–100) of every dimension a Control's
   typology requires (`control_efficacy`, target `control_id`). Junsu computes
   probability, impact, inherent risk, band and residual: never send aggregates.
+- `save_processing_records` (`processing_record`, target `activity_id`) creates or
+  changes the entry of one Activity in the register of processing activities of a
+  Protección de datos Project; the Activity is the processing activity, so the tool
+  never creates Activities. `fields` carries only what changes. `criterios_eipd`
+  takes the codes `get_step_context` lists; Junsu decides whether they propose an
+  impact assessment and what the entry still lacks for its role.
 - Use a truthful `agent_label`. It is self-reported; Junsu records the authenticated
   user separately.
 
-Everything you save stays marked as written by an agent. A Workspace administrator
-accepts or reverts each row in Junsu, under *Agentes*, and no Version can
+Every row the `save_*` tools write stays marked as written by an agent. A Workspace
+administrator accepts or reverts each row in Junsu, under *Agentes*, and no Version can
 be saved or sent to the certifier while any row is pending. Tell the user that.
 
 Never mark steps as completed, send Versions, accept residual risk or issue a
 certification: those stay in Junsu.
 
-## Certifier review
+## Observations
+
+`list_observations` reads the certifier's observations and their replies.
+`add_observation` and `reply_to_observation` are saved at once: no preview, no agent
+row to review, and the other side sees them straight away. Show the user the exact
+text and send it only after they confirm.
 
 A certifier connection reads the granted Project's data and evidence and can add
 targeted observations and replies when the user asks for that communication. It

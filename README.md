@@ -1,34 +1,43 @@
 # Junsu para Claude
 
-Marketplace del plugin de [Junsu](https://junsu.es) para Claude: el conector de
-Junsu y la guía para trabajar en un Proyecto desde Claude.ai, Claude Desktop y
-Claude Code.
+Marketplace del plugin de [Junsu](https://junsu.es) para Claude. Con él, Claude lee
+los pasos, los requisitos y las evidencias de un Proyecto de Junsu y prepara cambios
+que ves en una vista previa antes de guardarlos. Junsu conserva los permisos, la
+metodología, el cálculo y la revisión por una persona de las filas que guarda el
+agente; las observaciones y sus respuestas se guardan al momento. Sirve en Claude.ai,
+Claude Desktop, Cowork y Claude Code.
 
-## Instalación
+- Guía pública, con ejemplos y solución de problemas:
+  [junsu.es/guias/claude](https://junsu.es/guias/claude).
+- Qué datos trata Junsu y cómo: [junsu.es/privacidad](https://junsu.es/privacidad).
 
-El repositorio es privado: necesitas una cuenta de GitHub con acceso de lectura.
-Pídelo a Junsu.
+El repositorio es público y no lleva secretos. Para conectar el conector necesitas una
+cuenta de Junsu: cada conexión trabaja sobre un único Proyecto, con tus permisos.
 
-1. En Claude, abre **Customize → Plugins** y elige **Add marketplace**.
-2. Escribe `Haedo-Studio/junsu-claude-plugin`. Si Claude te lo pide, conecta tu
-   cuenta de GitHub y da acceso a este repositorio a la app de Claude en GitHub.
+## Instalación en Claude
+
+1. En Claude, abre **Customize → Plugins** y elige **Add → Add marketplace**.
+2. Escribe `Haedo-Studio/junsu-claude-plugin` y confírmalo.
 3. Activa **Sync automatically** en el marketplace para recibir cada versión nueva.
-4. Instala el plugin **Junsu** y conecta su conector desde la pestaña
-   **Connectors**. Junsu te pedirá iniciar sesión y elegir el Proyecto.
+4. Añade el plugin **Junsu**. En su pestaña **Connectors**, añade el conector `junsu`
+   y conéctalo: Junsu te pedirá iniciar sesión y elegir el Proyecto y el acceso.
 
-En Claude Code:
+Claude Code recibe el plugin sincronizado con tu cuenta la próxima vez que inicias
+sesión con ella.
+
+## Solo en Claude Code
 
 ```
 /plugin marketplace add Haedo-Studio/junsu-claude-plugin
 /plugin install junsu@junsu
 ```
 
-Claude Code no actualiza este marketplace por defecto: activa **Enable auto-update**
-en `/plugin` → **Marketplaces** → `junsu`, o actualiza a mano con
-`/plugin marketplace update junsu`. Claude Code clona el repositorio con tus
-credenciales de git: si no tienes clave SSH de GitHub, ejecuta antes
-`gh auth login` y `gh auth setup-git`. Si instalaste el plugin desde Claude.ai, Claude
-Code lo recibe sincronizado con tu cuenta y no necesitas estos pasos.
+Después, `/mcp` conecta el servidor `junsu` e inicia sesión en Junsu. Claude Code no
+actualiza este marketplace por defecto: activa **Enable auto-update** en `/plugin` →
+**Marketplaces** → `junsu`, o actualiza a mano con `/plugin marketplace update junsu`.
 
 Este repositorio se genera desde Junsu en cada versión del plugin. No se edita a
 mano: los cambios se hacen en Junsu.
+
+Sus ficheros se publican con licencia MIT (`LICENSE`). La licencia cubre solo el
+plugin y este repositorio, no Junsu ni su servidor.
