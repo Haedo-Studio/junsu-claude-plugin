@@ -1,12 +1,17 @@
 {
   "name": "junsu",
   "displayName": "Junsu",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Trabaja en un Proyecto de Junsu desde Claude: pasos, datos, evidencias, cambios con vista previa y observaciones, con la gu\u00eda del recorrido.",
   "author": {
     "name": "Junsu",
     "url": "https://junsu.es"
   },
   "license": "MIT",
-  "icon": "./logo.png"
+  "icon": "./logo.png",
+  "homepage": "https://junsu.es",
+  "documentationUrl": "https://junsu.es/guias/claude",
+  "supportUrl": "https://junsu.es/guias/claude#soporte",
+  "privacyPolicyUrl": "https://junsu.es/privacidad",
+  "repository": "https://github.com/Haedo-Studio/junsu-claude-plugin"
 }
